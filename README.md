@@ -3,6 +3,6 @@
 
                                                                     
    Proyecto final                                                  
-   Elaborado por Pedro Baquero, Ángel López                         
-   Universidad del Rosario - Asignatura Optimización - 2021-2       
-  Profesor Jose Lenin Morillo                                      
+   Elaborado por Juan David Obando, Ángel López                         
+   Universidad del Rosario - Asignatura probabilidad y estadística 1 - 2021-2       
+   Profesor Cécile Gauthier                                     
