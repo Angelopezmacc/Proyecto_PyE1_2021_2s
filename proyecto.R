@@ -18,7 +18,7 @@
 #--------------------------------------------------------------------------------------------
 # Se importa el dataset
 library(readxl)
-data <- read_excel("Documentos/UR 2021-2/Git/Proyecto_PyE1_2021_2s/dataset_engineering_graduate_salary.xlsx",
+datos <- read_excel("Documentos/UR 2021-2/Git/Proyecto_PyE1_2021_2s/dataset_engineering_graduate_salary.xlsx",
                                                   col_types = c("numeric", "text", "text",
                                                                 "numeric", "text", "numeric", "numeric",
                                                                 "numeric", "numeric", "numeric", "text", "text",
@@ -80,10 +80,6 @@ tabla_sexo = table(col_2); tabla_sexo
 pie(tabla_sexo)
 
 #--------------------------------------------------------------------------------------------
-
-
-
-
 
 
 
