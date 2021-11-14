@@ -1,51 +1,22 @@
 #**********************************************
 #Universidad del Rosario                      *
 # Proyecto final                              *
-# Probailidad y Estad√≠stica 1                 *
+# Probailidad y EstadÌstica 1                 *
 # 2021 - 2s                                   *
 #                                             *
 # Juan Obando                                 *
-# √Ångel L√≥pez                                 *
+# ¡ngel LÛpez                                 *
 #**********************************************
 
-# Para m√°s informaci√≥n, por favor remitirse a nuestro repositorio de GitHub. Ah√≠ encontrar√° adem√°s de este c√≥digo, 
-# el archivo de datos analizado en formato xlsx o ods (depende de su preferencia y aclaramos que el c√≥digo a continuaci√≥n solo contemple
-#archivo con el formato .xlsx). Tambi√©n encontrar√° un archivo Readme.md en el cual podr√° obtener una mejor descripci√≥n del proyecto
+# Para m·s informaciÛn, por favor remitirse a nuestro repositorio de GitHub. AhÌ encontrar· adem·s de este cÛdigo, 
+# el archivo de datos analizado en formato xlsx o ods (depende de su preferencia y aclaramos que el cÛdigo a continuaciÛn solo contemple
+#archivo con el formato .xlsx). TambiÈn encontrar· un archivo Readme.md en el cual podr· obtener una mejor descripciÛn del proyecto
 # junto con algunas indicaciones generales. Gracias
 
 #Link al repositorio: https://github.com/Angelopezmacc/Proyecto_PyE1_2021_2s
 
 #--------------------------------------------------------------------------------------------
 # Se importa el dataset
-
-# En Linux
-# library(readxl)
-# datos <- read_excel("Documentos/UR 2021-2/Git/Proyecto_PyE1_2021_2s/dataset_engineering_graduate_salary.xlsx",
-#                     col_types = c("numeric", "text", "text",
-#                                   "numeric", "text", "numeric", "numeric",
-#                                   "numeric", "numeric", "numeric", "text", "text",
-#                                   "numeric", "numeric", "numeric", "text", "numeric",
-#                                   "numeric", "numeric", "numeric", "numeric",
-#                                   "numeric", "numeric", "numeric", "numeric",
-#                                   "numeric", "numeric", "numeric",
-#                                   "numeric", "numeric", "numeric", "numeric", "numeric",
-#                                   "numeric", "text", "text", "text",
-#                                  "text"))
-
-# En windows
-# library(readxl)
-# datos <- read_excel("ur_git/Proyecto_PyE1_2021_2s/dataset_engineering_graduate_salary.xlsx")
-# col_types = c("numeric", "text", "text",
-#               "numeric", "text", "numeric", "numeric",
-#               "numeric", "numeric", "numeric", "text", "text",
-#               "numeric", "numeric", "numeric", "text", "numeric",
-#               "numeric", "numeric", "numeric", "numeric",
-#               "numeric", "numeric", "numeric", "numeric",
-#               "numeric", "numeric", "numeric",
-#               "numeric", "numeric", "numeric", "numeric", "numeric",
-#               "numeric", "text", "text", "text",
-#               "text")
-# View(datos)
 library(readxl)
 library(readxl)
 datos <- read_excel("ur_git/Proyecto_PyE1_2021_2s/dataset_engineering_graduate_salary.xlsx")
@@ -130,7 +101,7 @@ summary(datos)
 tabla_sexo = table(col_2); tabla_sexo
 pie(tabla_sexo)
 #--------------------------------------------------------------------------------------------
-# Analizando 10percentage - col_4 (!Deprecado!)
+# Analizando 10percentage - col_4
 
 for (i in 1:2998) {
   if (col_4[i,1] >= 40.00 & col_4[i,1] <= 50.00){
@@ -166,7 +137,7 @@ hist(as.numeric(rango_6_col_4))
 # Analizando 12graduation - col_6
 table(col_6)
 #--------------------------------------------------------------------------------------------
-# Analizando 12percentage - col_7 (!Deprecado!)
+# Analizando 12percentage - col_7 
 for (i in 1:2998) {
   if (col_7[i,1] >= 40.00 & col_7[i,1] <= 50.00){
     rango_1_col_7 = c(rango_1_col_7,col_7[i,1])
@@ -197,6 +168,12 @@ hist(as.numeric(rango_6_col_7))
 # Analizando 12board - col_8
 table(col_8)
 
+#--------------------------------------------------------------------------------------------
+# Analizando  - CollegeTier
+table(col_10)
+#--------------------------------------------------------------------------------------------
+# Analizando  - CollegeCityTier
+table(col_15)
 #--------------------------------------------------------------------------------------------
 # Analizando el salario a lo largo de CollegeTier - col_10
 promedio_tier1 = mean(col_34[col_10 == 1])
@@ -237,6 +214,7 @@ GPAs <- c(gpa1, gpa2, gpa3, gpa4, gpa5, gpa6, gpa7, gpa8, gpa9)
 barplot(GPAs, main="Salario", xlab="Promedios de clases universitarias")
 
 
+#--------------------------------------------------------------------------------------------
 # Fin del documento
 
 
