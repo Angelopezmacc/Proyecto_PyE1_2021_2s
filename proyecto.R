@@ -1,16 +1,16 @@
 #**********************************************
 #Universidad del Rosario                      *
 # Proyecto final                              *
-# Probailidad y EstadÌstica 1                 *
+# Probailidad y Estad√≠stica 1                 *
 # 2021 - 2s                                   *
 #                                             *
 # Juan Obando                                 *
-# ¡ngel LÛpez                                 *
+# √Ångel L√≥pez                                 *
 #**********************************************
 
-# Para m·s informaciÛn, por favor remitirse a nuestro repositorio de GitHub. AhÌ encontrar· adem·s de este cÛdigo, 
-# el archivo de datos analizado en formato xlsx o ods (depende de su preferencia y aclaramos que el cÛdigo a continuaciÛn solo contemple
-#archivo con el formato .xlsx). TambiÈn encontrar· un archivo Readme.md en el cual podr· obtener una mejor descripciÛn del proyecto
+# Para m√°s informaci√≥n, por favor remitirse a nuestro repositorio de GitHub. Ah√≠ encontrar√° adem√°s de este c√≥digo, 
+# el archivo de datos analizado en formato xlsx o ods (depende de su preferencia y aclaramos que el c√≥digo a continuaci√≥n solo contemple
+#archivo con el formato .xlsx). Tambi√©n encontrar√° un archivo Readme.md en el cual podr√° obtener una mejor descripci√≥n del proyecto
 # junto con algunas indicaciones generales. Gracias
 
 #Link al repositorio: https://github.com/Angelopezmacc/Proyecto_PyE1_2021_2s
@@ -63,12 +63,12 @@ datos <- read_excel("ur_git/Proyecto_PyE1_2021_2s/dataset_engineering_graduate_s
 View(datos)
 
 #--------------------------------------------------------------------------------------------
-# Definimos algunas variables globales ˙tiles a lo largo de todo el cÛdigo
+# Definimos algunas variables globales √∫tiles a lo largo de todo el c√≥digo
 
 # Columnas
 
-col_1 = datos[,1] # ID (IdentificaciÛn)
-col_2 = datos[,2] # Gender (GÈnero)
+col_1 = datos[,1] # ID (Identificaci√≥n)
+col_2 = datos[,2] # Gender (G√©nero)
 col_3 = datos[,3] # DOB (fecha de nacimiento)
 col_4 = datos[,4] # 10percentage
 col_5 = datos[,5] # 10board
@@ -122,7 +122,7 @@ rango_5_col_7 = list()
 rango_6_col_7 = list()
 
 #--------------------------------------------------------------------------------------------
-# Obtenemos un breve y b·sico de los datos que tenemos
+# Obtenemos un breve y b√°sico de los datos que tenemos
 summary(datos)
 
 #--------------------------------------------------------------------------------------------
@@ -130,7 +130,7 @@ summary(datos)
 tabla_sexo = table(col_2); tabla_sexo
 pie(tabla_sexo)
 #--------------------------------------------------------------------------------------------
-# Analizando 10percentage - col_4
+# Analizando 10percentage - col_4 (!Deprecado!)
 
 for (i in 1:2998) {
   if (col_4[i,1] >= 40.00 & col_4[i,1] <= 50.00){
@@ -166,7 +166,7 @@ hist(as.numeric(rango_6_col_4))
 # Analizando 12graduation - col_6
 table(col_6)
 #--------------------------------------------------------------------------------------------
-# Analizando 12percentage - col_7
+# Analizando 12percentage - col_7 (!Deprecado!)
 for (i in 1:2998) {
   if (col_7[i,1] >= 40.00 & col_7[i,1] <= 50.00){
     rango_1_col_7 = c(rango_1_col_7,col_7[i,1])
@@ -198,10 +198,45 @@ hist(as.numeric(rango_6_col_7))
 table(col_8)
 
 #--------------------------------------------------------------------------------------------
-# Analizando CollegeTier - col_10
-table(col_10)
+# Analizando el salario a lo largo de CollegeTier - col_10
+promedio_tier1 = mean(col_34[col_10 == 1])
+promedio_tier2 = mean(col_34[col_10 == 2])
 
 #--------------------------------------------------------------------------------------------
+# Analizando el salario en las diferentes especializacion - col_12
+promedio_IT = mean(col_34[col_12 == "information technology"])
+promedio_CE = mean(col_34[col_12 == "computer engineering"])
+promedio_E = mean(col_34[col_12 == "electronics and communication engineering"])
+promedio_CS = mean(col_34[col_12 == "computer science & engineering"])
+
+#--------------------------------------------------------------------------------------------
+# Analizando el salario en los promedios academicos universitarios - col_14
+gpa1 = mean(col_34[col_14 >= 6 & col_14 <= 19.9])
+gpa2 = mean(col_34[col_14 > 19.9 & col_14 <= 29.9])
+gpa3 = mean(col_34[col_14 > 29.9 & col_14 <= 39.9])
+gpa4 = mean(col_34[col_14 > 39.9 & col_14 <= 49.9])
+gpa5 = mean(col_34[col_14 > 49.9 & col_14 <= 59.9])
+gpa6 = mean(col_34[col_14 > 59.9 & col_14 <= 69.9])
+gpa7 = mean(col_34[col_14 > 69.9 & col_14 <= 79.9])
+gpa8 = mean(col_34[col_14 > 79.9 & col_14 <= 89.9])
+gpa9 = mean(col_34[col_14 > 89.9 & col_14 <= 99.9])
+
+#--------------------------------------------------------------------------------------------
+#Realizamos aqui diferentes graficas de loas analizis previos
+
+#Grafico de College Tier
+Tiers <- c(promedio_tier2, promedio_tier1)
+barplot(Tiers, main="Salario", xlab="College Tier")
+
+#Grafico salario por especializacion
+Esp <- c(promedio_IT, promedio_CE, promedio_E, promedio_CS)
+barplot(Esp, main="Salario", xlab="Especializacion del graduado")
+
+#Grafico salario
+GPAs <- c(gpa1, gpa2, gpa3, gpa4, gpa5, gpa6, gpa7, gpa8, gpa9)
+barplot(GPAs, main="Salario", xlab="Promedios de clases universitarias")
+
+
 # Fin del documento
 
 
