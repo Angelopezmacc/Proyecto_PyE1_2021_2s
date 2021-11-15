@@ -15,9 +15,10 @@
 
 #Link al repositorio: https://github.com/Angelopezmacc/Proyecto_PyE1_2021_2s
 
+
 #--------------------------------------------------------------------------------------------
 # Se importa el dataset
-library(readxl)
+
 library(readxl)
 datos <- read_excel("ur_git/Proyecto_PyE1_2021_2s/dataset_engineering_graduate_salary.xlsx")
                                                   col_types = c("numeric", "text", "text", 
@@ -32,6 +33,9 @@ datos <- read_excel("ur_git/Proyecto_PyE1_2021_2s/dataset_engineering_graduate_s
                                                                 "numeric", "numeric", "numeric", 
                                                                 "skip", "skip", "skip", "skip")
 View(datos)
+
+
+
 
 #--------------------------------------------------------------------------------------------
 # Definimos algunas variables globales Ãºtiles a lo largo de todo el cÃ³digo
@@ -92,14 +96,25 @@ rango_4_col_7 = list()
 rango_5_col_7 = list()
 rango_6_col_7 = list()
 
+# ---
+rango_1_col_34 = list()
+rango_2_col_34 = list()
+rango_3_col_34 = list()
+rango_4_col_34 = list()
+rango_5_col_34 = list()
+
+
 #--------------------------------------------------------------------------------------------
-# Obtenemos un breve y bÃ¡sico de los datos que tenemos
+# Obtenemos un breve y básico de los datos que tenemos
 summary(datos)
+
 
 #--------------------------------------------------------------------------------------------
 # Analizando la cantidad de hombres y mujeres - col_3
 tabla_sexo = table(col_2); tabla_sexo
 pie(tabla_sexo)
+
+
 #--------------------------------------------------------------------------------------------
 # Analizando 10percentage - col_4
 
@@ -123,22 +138,25 @@ for (i in 1:2998) {
     rango_6_col_4 = c(rango_6_col_4,col_4[i,1])
   }
 }
-hist(as.numeric(rango_1_col_4))
-hist(as.numeric(rango_2_col_4))
-hist(as.numeric(rango_3_col_4))
-hist(as.numeric(rango_4_col_4))
-hist(as.numeric(rango_5_col_4))
-hist(as.numeric(rango_6_col_4))
+hist(as.numeric(rango_1_col_4), xlab = "calificación",ylab = "Frencuencia")
+hist(as.numeric(rango_2_col_4), xlab = "calificación",ylab = "Frencuencia")
+hist(as.numeric(rango_3_col_4), xlab = "calificación",ylab = "Frencuencia")
+hist(as.numeric(rango_4_col_4), xlab = "calificación",ylab = "Frencuencia")
+hist(as.numeric(rango_5_col_4), xlab = "calificación",ylab = "Frencuencia")
+hist(as.numeric(rango_6_col_4), xlab = "calificación",ylab = "Frencuencia")
 
-#--------------------------------------------------------------------------------------------
-# Analizando 10board - col_5
+percentage_10 = cbind(rango_1_col_4,rango_2_col_4,rango_3_col_4,rango_4_col_4,rango_5_col_4,rango_6_col_4)
+percentage_10
+hist(as.numeric(percentage_10), xlab = "Calificación",ylab = "Frencuencia")
 
 #--------------------------------------------------------------------------------------------
 # Analizando 12graduation - col_6
 table(col_6)
+
+
 #--------------------------------------------------------------------------------------------
 # Analizando 12percentage - col_7 
-for (i in 1:2998) {
+for (i in 1:2941) {
   if (col_7[i,1] >= 40.00 & col_7[i,1] <= 50.00){
     rango_1_col_7 = c(rango_1_col_7,col_7[i,1])
   }
@@ -158,26 +176,117 @@ for (i in 1:2998) {
     rango_6_col_7 = c(rango_6_col_7,col_7[i,1])
   }
 }
-hist(as.numeric(rango_1_col_7))
-hist(as.numeric(rango_2_col_7))
-hist(as.numeric(rango_3_col_7))
-hist(as.numeric(rango_4_col_7))
-hist(as.numeric(rango_5_col_7))
-hist(as.numeric(rango_6_col_7))
-#--------------------------------------------------------------------------------------------
-# Analizando 12board - col_8
-table(col_8)
+hist(as.numeric(rango_1_col_7), xlab = "calificación",ylab = "Frencuencia")
+hist(as.numeric(rango_2_col_7), xlab = "calificación",ylab = "Frencuencia")
+hist(as.numeric(rango_3_col_7), xlab = "calificación",ylab = "Frencuencia")
+hist(as.numeric(rango_4_col_7), xlab = "calificación",ylab = "Frencuencia")
+hist(as.numeric(rango_5_col_7), xlab = "calificación",ylab = "Frencuencia")
+hist(as.numeric(rango_6_col_7), xlab = "calificación",ylab = "Frencuencia")
 
+percentage_12 = cbind(rango_1_col_7,rango_2_col_7,rango_3_col_7,rango_4_col_7,rango_5_col_7,rango_6_col_7)
+percentage_12
+hist(as.numeric(percentage_12), xlab = "Calificación",ylab = "Frencuencia")
 #--------------------------------------------------------------------------------------------
 # Analizando  - CollegeTier
 table(col_10)
+dotchart(table(col_10))
+
+
 #--------------------------------------------------------------------------------------------
 # Analizando  - CollegeCityTier
 table(col_15)
+dotchart(table(col_15))
+
+
+#--------------------------------------------------------------------------------------------
+# Analizando el tipo de grado
+table(col_11)
+barplot(table(col_11))
+
+
+#--------------------------------------------------------------------------------------------
+# Analizando el tipo de especialización
+table(col_12)
+
+
+#--------------------------------------------------------------------------------------------
+# Puntaje de inglés
+
+table(col_18)
+barplot(table(col_18))
+
+
+#--------------------------------------------------------------------------------------------
+# Puntaje de lógica
+
+table(col_19)
+barplot(table(col_19))
+
+#--------------------------------------------------------------------------------------------
+# Puntaje de quant
+
+table(col_20)
+barplot(table(col_20))
+
+#--------------------------------------------------------------------------------------------
+# Puntaje de Computer Programming
+
+table(col_22)
+barplot(table(col_22))
+
+#--------------------------------------------------------------------------------------------
+# Puntaje de ElectronicsAndSemicon
+
+table(col_23)
+barplot(table(col_23))
+
+#--------------------------------------------------------------------------------------------
+# Puntaje de ComputerScience
+
+table(col_24)
+barplot(table(col_24))
+
+#--------------------------------------------------------------------------------------------
+# Puntaje de MechanicalEngg
+
+table(col_25)
+barplot(table(col_25))
+
+#--------------------------------------------------------------------------------------------
+#Nota: El comportamiento de Electrical, telecom y civil es similar a las presentadas anteriormente
+#--------------------------------------------------------------------------------------------
+# Análisis salarios:
+for (i in 1:2941) {
+  if (col_34[i,1] >= 1000 & col_34[i,1] <= 250000){
+    rango_1_col_34 = c(rango_1_col_34,col_34[i,1])
+  }
+  if (col_34[i,1] >= 250000 & col_34[i,1] <= 500000){
+    rango_2_col_34 = c(rango_2_col_34,col_34[i,1])
+  }
+  if (col_34[i,1] >= 500000 & col_34[i,1] <= 1000000){
+    rango_3_col_34 = c(rango_3_col_34,col_34[i,1])
+  }
+  if (col_34[i,1] >= 1000000 & col_34[i,1] <= 2500000){
+    rango_4_col_34 = c(rango_4_col_34,col_34[i,1])
+  }
+  if (col_34[i,1] >= 2500000 & col_34[i,1] <= 5000000){
+    rango_5_col_34 = c(rango_5_col_34,col_34[i,1])
+  }
+}
+hist(as.numeric(rango_1_col_34), xlab = "Salario", ylab = "Frecuencia")
+hist(as.numeric(rango_2_col_34), xlab = "Salario", ylab = "Frecuencia")
+hist(as.numeric(rango_3_col_34), xlab = "Salario", ylab = "Frecuencia")
+hist(as.numeric(rango_4_col_34), xlab = "Salario", ylab = "Frecuencia")
+hist(as.numeric(rango_5_col_34), xlab = "Salario", ylab = "Frecuencia")
+
+salary = cbind(rango_1_col_34,rango_2_col_34,rango_3_col_34,rango_4_col_34,rango_5_col_34)
+salary
+hist(as.numeric(salary), xlab = "Salario",ylab = "Frencuencia")
 #--------------------------------------------------------------------------------------------
 # Analizando el salario a lo largo de CollegeTier - col_10
 promedio_tier1 = mean(col_34[col_10 == 1])
 promedio_tier2 = mean(col_34[col_10 == 2])
+
 
 #--------------------------------------------------------------------------------------------
 # Analizando el salario en las diferentes especializacion - col_12
@@ -185,6 +294,7 @@ promedio_IT = mean(col_34[col_12 == "information technology"])
 promedio_CE = mean(col_34[col_12 == "computer engineering"])
 promedio_E = mean(col_34[col_12 == "electronics and communication engineering"])
 promedio_CS = mean(col_34[col_12 == "computer science & engineering"])
+
 
 #--------------------------------------------------------------------------------------------
 # Analizando el salario en los promedios academicos universitarios - col_14
@@ -198,8 +308,10 @@ gpa7 = mean(col_34[col_14 > 69.9 & col_14 <= 79.9])
 gpa8 = mean(col_34[col_14 > 79.9 & col_14 <= 89.9])
 gpa9 = mean(col_34[col_14 > 89.9 & col_14 <= 99.9])
 
+
+
 #--------------------------------------------------------------------------------------------
-#Realizamos aqui diferentes graficas de loas analizis previos
+#Realizamos diferentes graficas de los análisis previos
 
 #Grafico de College Tier
 Tiers <- c(promedio_tier2, promedio_tier1)
@@ -209,14 +321,17 @@ barplot(Tiers, main="Salario", xlab="College Tier")
 Esp <- c(promedio_IT, promedio_CE, promedio_E, promedio_CS)
 barplot(Esp, main="Salario", xlab="Especializacion del graduado")
 
+
+#--------------------------------------------------------------------------------------------
 #Grafico salario
 GPAs <- c(gpa1, gpa2, gpa3, gpa4, gpa5, gpa6, gpa7, gpa8, gpa9)
 barplot(GPAs, main="Salario", xlab="Promedios de clases universitarias")
 
 
+
 #--------------------------------------------------------------------------------------------
 # Fin del documento
-
+#--------------------------------------------------------------------------------------------
 
 
 
