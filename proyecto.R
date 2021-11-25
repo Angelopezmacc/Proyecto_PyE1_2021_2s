@@ -337,8 +337,8 @@ a1 = c(mean(col_34[col_13 >= 6 & col_13 <= 10]), mean(col_34[col_13 >= 40 & col_
 b = unlist(col_34, use.names = FALSE)
 b1 = c(mean(col_13[col_13 >= 6 & col_13 <= 10]), mean(col_13[col_13 >= 40 & col_13 <= 59.9]), mean(col_13[col_13 >= 60 & col_13 <= 79.9]), mean(col_13[col_13 >= 80 & col_13 <= 100]))
 
-x = c(a1)
-y = c(b1)
+x = c(b1)
+y = c(a1)
 
 plot(x,y,main="GPA ~Salario",xlim=c(0,100)) 
 alpha=0.05 
@@ -349,8 +349,8 @@ mod = lm(y~x)
 summary(mod) 
 abline(mod) 
 abline(mod,col=2,lwd=3)
-print(a1)
-print(b1)
+#print(a1)
+#print(b1)
 
 
 #Ingles ~ Salario
@@ -360,10 +360,10 @@ b = unlist(col_34, use.names = FALSE)
 b1 = c(mean(col_19[col_19 >= 180 & col_19 <= 353]), mean(col_19[col_19 >= 354 & col_19 <= 527]), mean(col_19[col_19 >= 528 & col_19 <= 701]), mean(col_19[col_19 >= 702 & col_19 <= 876]))
 
 
-x = c(a1)
-y = c(b1)
+x = c(b1)
+y = c(a1)
 
-plot(x,y,main="Ingles ~ Salario",xlim=c(0,100)) 
+plot(x,y,main="Ingles ~ Salario") 
 alpha=0.05 
 n=length(x) 
 gl=n-2 
@@ -372,8 +372,8 @@ mod = lm(y~x)
 summary(mod) 
 abline(mod) 
 abline(mod,col=2,lwd=3)
-print(a1)
-print(b1)
+#print(a1)
+#print(b1)
 
 
 #programacion ~ Salario
@@ -383,10 +383,10 @@ b = unlist(col_34, use.names = FALSE)
 b1 = c(mean(col_23[col_23 >= 180 & col_23 <= 353]), mean(col_23[col_23 >= 354 & col_23 <= 527]), mean(col_23[col_23 >= 528 & col_23 <= 701]), mean(col_23[col_23 >= 702 & col_23 <= 876]))
 
 
-x = c(a1)
-y = c(b1)
+x = c(b1)
+y = c(a1)
 
-plot(x,y,main="Programacion ~ Salario",xlim=c(0,100)) 
+plot(x,y,main="Programacion ~ Salario") 
 alpha=0.05 
 n=length(x) 
 gl=n-2 
@@ -395,8 +395,8 @@ mod = lm(y~x)
 summary(mod) 
 abline(mod) 
 abline(mod,col=2,lwd=3)
-print(a1)
-print(b1)
+#print(b1)
+#print(a1)
 
 
 #mecanica ~ Salario
@@ -406,10 +406,10 @@ b = unlist(col_34, use.names = FALSE)
 b1 = c(mean(col_26[col_26 >= 180 & col_26 <= 353]), mean(col_26[col_26 >= 354 & col_26 <= 527]), mean(col_26[col_26 >= 528 & col_26 <= 701]), mean(col_26[col_26 >= 702 & col_26 <= 876]))
 
 
-x = c(a1)
-y = c(b1)
+x = c(b1)
+y = c(a1)
 
-plot(x,y,main="Mecanica ~ Salario",xlim=c(0,100)) 
+plot(x,y,main="Mecanica ~ Salario") 
 alpha=0.05 
 n=length(x) 
 gl=n-2 
@@ -418,21 +418,21 @@ mod = lm(y~x)
 summary(mod) 
 abline(mod) 
 abline(mod,col=2,lwd=3)
-print(a1)
-print(b1)
+#print(a1)
+#print(b1)
 
 
 #Extraversion ~ Salario
 a = unlist(col_19, use.names = FALSE)
-a1 = c(mean(col_34[col_32 >= 180 & col_32 <= 290]), mean(col_34[col_32 >= 291 & col_32 <= 401]), mean(col_34[col_32 >= 402 & col_32 <= 512]), mean(col_34[col_32 >= 513 & col_32 <= 623]))
+a1 = c(mean(col_34[col_32 >= -4.6 & col_32 <= -2.8]), mean(col_34[col_32 >= -2.9 & col_32 <= -1.1]), mean(col_34[col_32 >= -1.2 & col_32 <= 0.4]), mean(col_34[col_32 >= 0.5 & col_32 <= 2.2]))
 b = unlist(col_34, use.names = FALSE)
-b1 = c(mean(col_32[col_32 >= 180 & col_32 <= 353]), mean(col_32[col_32 >= 354 & col_32 <= 527]), mean(col_32[col_32 >= 528 & col_32 <= 701]), mean(col_32[col_32 >= 702 & col_32 <= 876]))
+b1 = c(mean(col_32[col_32 >= -4.6 & col_32 <= -2.8]), mean(col_32[col_32 >= -2.9 & col_32 <= -1.1]), mean(col_32[col_32 >= -1.2 & col_32 <= 0.4]), mean(col_32[col_32 >= 0.5 & col_32 <= 2.2]))
 
 
-x = c(a1)
-y = c(b1)
+x = c(b1)
+y = c(a1)
 
-plot(x,y,main="Civil ~ Salario",xlim=c(0,100)) 
+plot(x,y,main="Extraversion ~ Salario",xlim=c(-5,3)) 
 alpha=0.05 
 n=length(x) 
 gl=n-2 
@@ -441,8 +441,8 @@ mod = lm(y~x)
 summary(mod) 
 abline(mod) 
 abline(mod,col=2,lwd=3)
-print(a1)
-print(b1)
+#print(a1)
+#print(b1)
 
 
 
