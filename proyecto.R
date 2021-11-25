@@ -547,8 +547,7 @@ alpha=0.05
 n=length(x) 
 gl=n-2 
 
-<<<<<<< HEAD
-=======
+
 #-------------------------------------------------------------------------------------------
 #Modelos lineales
 
@@ -566,15 +565,13 @@ alpha=0.05
 n=length(x) 
 gl=n-2 
 
->>>>>>> 1f16129ebed7e4913a780f7b584ae314c6736724
+
 mod = lm(y~x) 
 summary(mod) 
 abline(mod) 
 abline(mod,col=2,lwd=3)
 #print(a1)
 #print(b1)
-<<<<<<< HEAD
-=======
 
 
 #Ingles ~ Salario
@@ -668,8 +665,6 @@ abline(mod,col=2,lwd=3)
 #print(a1)
 #print(b1)
 
-
->>>>>>> 1f16129ebed7e4913a780f7b584ae314c6736724
 
 #--------------------------------------------------------------------------------------------
 # Fin del documento
