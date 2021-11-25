@@ -7,7 +7,7 @@
    Universidad del Rosario - Asignatura probabilidad y estadística 1 - 2021-2       
    Profesor Cécile Gauthier                                     
 
-Los datos originales pueden ser obtenidos aquí . 
+Los datos originales pueden ser obtenidos aquí (https://www.kaggle.com/manishkc06/engineering-graduate-salary-prediction) Los datos no nos pertencen . 
 
 Descripción del problema: 
 
