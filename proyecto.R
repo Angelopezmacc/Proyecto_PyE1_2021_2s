@@ -1,16 +1,16 @@
 #**********************************************
 #Universidad del Rosario                      *
 # Proyecto final                              *
-# Probailidad y Estadística 1                 *
+# Probailidad y EstadÃ­stica 1                 *
 # 2021 - 2s                                   *
 #                                             *
 # Juan Obando                                 *
-# Ángel López                                 *
+# Ãngel LÃ³pez                                 *
 #**********************************************
 
-# Para más información, por favor remitirse a nuestro repositorio de GitHub. Ahí encontrará además de este código, 
-# el archivo de datos analizado en formato xlsx o ods (depende de su preferencia y aclaramos que el código a continuación solo contemple
-#archivo con el formato .xlsx). También encontrará un archivo Readme.md en el cual podrá obtener una mejor descripción del proyecto
+# Para mÃ¡s informaciÃ³n, por favor remitirse a nuestro repositorio de GitHub. AhÃ­ encontrarÃ¡ ademÃ¡s de este cÃ³digo, 
+# el archivo de datos analizado en formato xlsx o ods (depende de su preferencia y aclaramos que el cÃ³digo a continuaciÃ³n solo contemple
+#archivo con el formato .xlsx). TambiÃ©n encontrarÃ¡ un archivo Readme.md en el cual podrÃ¡ obtener una mejor descripciÃ³n del proyecto
 # junto con algunas indicaciones generales. Gracias
 
 #Link al repositorio: https://github.com/Angelopezmacc/Proyecto_PyE1_2021_2s
@@ -38,12 +38,12 @@ View(datos)
 
 
 #--------------------------------------------------------------------------------------------
-# Definimos algunas variables globales Ãºtiles a lo largo de todo el cÃ³digo
+# Definimos algunas variables globales ÃƒÂºtiles a lo largo de todo el cÃƒÂ³digo
 
 # Columnas
 
-col_1 = datos[,1] # ID (IdentificaciÃ³n)
-col_2 = datos[,2] # Gender (GÃ©nero)
+col_1 = datos[,1] # ID (IdentificaciÃƒÂ³n)
+col_2 = datos[,2] # Gender (GÃƒÂ©nero)
 col_3 = datos[,3] # DOB (fecha de nacimiento)
 col_4 = datos[,4] # 10percentage
 col_5 = datos[,5] # 10board
@@ -105,7 +105,7 @@ rango_5_col_34 = list()
 
 
 #--------------------------------------------------------------------------------------------
-# Obtenemos un breve y básico de los datos que tenemos
+# Obtenemos un breve y bÃ¡sico de los datos que tenemos
 summary(datos)
 
 
@@ -138,16 +138,16 @@ for (i in 1:2998) {
     rango_6_col_4 = c(rango_6_col_4,col_4[i,1])
   }
 }
-hist(as.numeric(rango_1_col_4), xlab = "calificación",ylab = "Frencuencia")
-hist(as.numeric(rango_2_col_4), xlab = "calificación",ylab = "Frencuencia")
-hist(as.numeric(rango_3_col_4), xlab = "calificación",ylab = "Frencuencia")
-hist(as.numeric(rango_4_col_4), xlab = "calificación",ylab = "Frencuencia")
-hist(as.numeric(rango_5_col_4), xlab = "calificación",ylab = "Frencuencia")
-hist(as.numeric(rango_6_col_4), xlab = "calificación",ylab = "Frencuencia")
+hist(as.numeric(rango_1_col_4), xlab = "calificaciÃ³n",ylab = "Frencuencia")
+hist(as.numeric(rango_2_col_4), xlab = "calificaciÃ³n",ylab = "Frencuencia")
+hist(as.numeric(rango_3_col_4), xlab = "calificaciÃ³n",ylab = "Frencuencia")
+hist(as.numeric(rango_4_col_4), xlab = "calificaciÃ³n",ylab = "Frencuencia")
+hist(as.numeric(rango_5_col_4), xlab = "calificaciÃ³n",ylab = "Frencuencia")
+hist(as.numeric(rango_6_col_4), xlab = "calificaciÃ³n",ylab = "Frencuencia")
 
 percentage_10 = cbind(rango_1_col_4,rango_2_col_4,rango_3_col_4,rango_4_col_4,rango_5_col_4,rango_6_col_4)
 percentage_10
-hist(as.numeric(percentage_10), xlab = "Calificación",ylab = "Frencuencia")
+hist(as.numeric(percentage_10), xlab = "CalificaciÃ³n",ylab = "Frencuencia")
 
 #--------------------------------------------------------------------------------------------
 # Analizando 12graduation - col_6
@@ -176,16 +176,16 @@ for (i in 1:2941) {
     rango_6_col_7 = c(rango_6_col_7,col_7[i,1])
   }
 }
-hist(as.numeric(rango_1_col_7), xlab = "calificación",ylab = "Frencuencia")
-hist(as.numeric(rango_2_col_7), xlab = "calificación",ylab = "Frencuencia")
-hist(as.numeric(rango_3_col_7), xlab = "calificación",ylab = "Frencuencia")
-hist(as.numeric(rango_4_col_7), xlab = "calificación",ylab = "Frencuencia")
-hist(as.numeric(rango_5_col_7), xlab = "calificación",ylab = "Frencuencia")
-hist(as.numeric(rango_6_col_7), xlab = "calificación",ylab = "Frencuencia")
+hist(as.numeric(rango_1_col_7), xlab = "calificaciÃ³n",ylab = "Frencuencia")
+hist(as.numeric(rango_2_col_7), xlab = "calificaciÃ³n",ylab = "Frencuencia")
+hist(as.numeric(rango_3_col_7), xlab = "calificaciÃ³n",ylab = "Frencuencia")
+hist(as.numeric(rango_4_col_7), xlab = "calificaciÃ³n",ylab = "Frencuencia")
+hist(as.numeric(rango_5_col_7), xlab = "calificaciÃ³n",ylab = "Frencuencia")
+hist(as.numeric(rango_6_col_7), xlab = "calificaciÃ³n",ylab = "Frencuencia")
 
 percentage_12 = cbind(rango_1_col_7,rango_2_col_7,rango_3_col_7,rango_4_col_7,rango_5_col_7,rango_6_col_7)
 percentage_12
-hist(as.numeric(percentage_12), xlab = "Calificación",ylab = "Frencuencia")
+hist(as.numeric(percentage_12), xlab = "CalificaciÃ³n",ylab = "Frencuencia")
 #--------------------------------------------------------------------------------------------
 # Analizando  - CollegeTier
 table(col_10)
@@ -205,19 +205,19 @@ barplot(table(col_11))
 
 
 #--------------------------------------------------------------------------------------------
-# Analizando el tipo de especialización
+# Analizando el tipo de especializaciÃ³n
 table(col_12)
 
 
 #--------------------------------------------------------------------------------------------
-# Puntaje de inglés
+# Puntaje de inglÃ©s
 
 table(col_18)
 barplot(table(col_18))
 
 
 #--------------------------------------------------------------------------------------------
-# Puntaje de lógica
+# Puntaje de lÃ³gica
 
 table(col_19)
 barplot(table(col_19))
@@ -255,7 +255,7 @@ barplot(table(col_25))
 #--------------------------------------------------------------------------------------------
 #Nota: El comportamiento de Electrical, telecom y civil es similar a las presentadas anteriormente
 #--------------------------------------------------------------------------------------------
-# Análisis salarios:
+# AnÃ¡lisis salarios:
 for (i in 1:2941) {
   if (col_34[i,1] >= 1000 & col_34[i,1] <= 250000){
     rango_1_col_34 = c(rango_1_col_34,col_34[i,1])
@@ -311,7 +311,7 @@ gpa9 = mean(col_34[col_14 > 89.9 & col_14 <= 99.9])
 
 
 #--------------------------------------------------------------------------------------------
-#Realizamos diferentes graficas de los análisis previos
+#Realizamos diferentes graficas de los anÃ¡lisis previos
 
 #Grafico de College Tier
 Tiers <- c(promedio_tier2, promedio_tier1)
@@ -326,6 +326,123 @@ barplot(Esp, main="Salario", xlab="Especializacion del graduado")
 #Grafico salario
 GPAs <- c(gpa1, gpa2, gpa3, gpa4, gpa5, gpa6, gpa7, gpa8, gpa9)
 barplot(GPAs, main="Salario", xlab="Promedios de clases universitarias")
+
+
+#-------------------------------------------------------------------------------------------
+#Modelos lineales
+
+#GPA ~ Salario
+a = unlist(col_13, use.names = FALSE)
+a1 = c(mean(col_34[col_13 >= 6 & col_13 <= 10]), mean(col_34[col_13 >= 40 & col_13 <= 59.9]), mean(col_34[col_13 >= 60 & col_13 <= 79.9]), mean(col_34[col_13 >= 80 & col_13 <= 100]))
+b = unlist(col_34, use.names = FALSE)
+b1 = c(mean(col_13[col_13 >= 6 & col_13 <= 10]), mean(col_13[col_13 >= 40 & col_13 <= 59.9]), mean(col_13[col_13 >= 60 & col_13 <= 79.9]), mean(col_13[col_13 >= 80 & col_13 <= 100]))
+
+x = c(a1)
+y = c(b1)
+
+plot(x,y,main="GPA ~Salario",xlim=c(0,100)) 
+alpha=0.05 
+n=length(x) 
+gl=n-2 
+
+mod = lm(y~x) 
+summary(mod) 
+abline(mod) 
+abline(mod,col=2,lwd=3)
+print(a1)
+print(b1)
+
+
+#Ingles ~ Salario
+a = unlist(col_19, use.names = FALSE)
+a1 = c(mean(col_34[col_19 >= 180 & col_19 <= 353]), mean(col_34[col_19 >= 354 & col_19 <= 527]), mean(col_34[col_19 >= 528 & col_19 <= 701]), mean(col_34[col_19 >= 702 & col_19 <= 876]))
+b = unlist(col_34, use.names = FALSE)
+b1 = c(mean(col_19[col_19 >= 180 & col_19 <= 353]), mean(col_19[col_19 >= 354 & col_19 <= 527]), mean(col_19[col_19 >= 528 & col_19 <= 701]), mean(col_19[col_19 >= 702 & col_19 <= 876]))
+
+
+x = c(a1)
+y = c(b1)
+
+plot(x,y,main="Ingles ~ Salario",xlim=c(0,100)) 
+alpha=0.05 
+n=length(x) 
+gl=n-2 
+
+mod = lm(y~x) 
+summary(mod) 
+abline(mod) 
+abline(mod,col=2,lwd=3)
+print(a1)
+print(b1)
+
+
+#programacion ~ Salario
+a = unlist(col_19, use.names = FALSE)
+a1 = c(mean(col_34[col_23 >= 160 & col_23 <= 300]), mean(col_34[col_23 >= 301 & col_23 <= 441]), mean(col_34[col_23 >= 442 & col_23 <= 582]), mean(col_34[col_23 >= 583 & col_23 <= 723]))
+b = unlist(col_34, use.names = FALSE)
+b1 = c(mean(col_23[col_23 >= 180 & col_23 <= 353]), mean(col_23[col_23 >= 354 & col_23 <= 527]), mean(col_23[col_23 >= 528 & col_23 <= 701]), mean(col_23[col_23 >= 702 & col_23 <= 876]))
+
+
+x = c(a1)
+y = c(b1)
+
+plot(x,y,main="Programacion ~ Salario",xlim=c(0,100)) 
+alpha=0.05 
+n=length(x) 
+gl=n-2 
+
+mod = lm(y~x) 
+summary(mod) 
+abline(mod) 
+abline(mod,col=2,lwd=3)
+print(a1)
+print(b1)
+
+
+#mecanica ~ Salario
+a = unlist(col_19, use.names = FALSE)
+a1 = c(mean(col_34[col_26 >= 180 & col_26 <= 290]), mean(col_34[col_26 >= 291 & col_26 <= 401]), mean(col_34[col_26 >= 402 & col_26 <= 512]), mean(col_34[col_26 >= 513 & col_26 <= 623]))
+b = unlist(col_34, use.names = FALSE)
+b1 = c(mean(col_26[col_26 >= 180 & col_26 <= 353]), mean(col_26[col_26 >= 354 & col_26 <= 527]), mean(col_26[col_26 >= 528 & col_26 <= 701]), mean(col_26[col_26 >= 702 & col_26 <= 876]))
+
+
+x = c(a1)
+y = c(b1)
+
+plot(x,y,main="Mecanica ~ Salario",xlim=c(0,100)) 
+alpha=0.05 
+n=length(x) 
+gl=n-2 
+
+mod = lm(y~x) 
+summary(mod) 
+abline(mod) 
+abline(mod,col=2,lwd=3)
+print(a1)
+print(b1)
+
+
+#Extraversion ~ Salario
+a = unlist(col_19, use.names = FALSE)
+a1 = c(mean(col_34[col_32 >= 180 & col_32 <= 290]), mean(col_34[col_32 >= 291 & col_32 <= 401]), mean(col_34[col_32 >= 402 & col_32 <= 512]), mean(col_34[col_32 >= 513 & col_32 <= 623]))
+b = unlist(col_34, use.names = FALSE)
+b1 = c(mean(col_32[col_32 >= 180 & col_32 <= 353]), mean(col_32[col_32 >= 354 & col_32 <= 527]), mean(col_32[col_32 >= 528 & col_32 <= 701]), mean(col_32[col_32 >= 702 & col_32 <= 876]))
+
+
+x = c(a1)
+y = c(b1)
+
+plot(x,y,main="Civil ~ Salario",xlim=c(0,100)) 
+alpha=0.05 
+n=length(x) 
+gl=n-2 
+
+mod = lm(y~x) 
+summary(mod) 
+abline(mod) 
+abline(mod,col=2,lwd=3)
+print(a1)
+print(b1)
 
 
 
