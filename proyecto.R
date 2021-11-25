@@ -18,6 +18,8 @@
 
 #--------------------------------------------------------------------------------------------
 # Se importa el dataset
+rm(list = ls()) # borrar los datos iniciales
+
 
 library(readxl)
 datos <- read_excel("ur_git/Proyecto_PyE1_2021_2s/dataset_engineering_graduate_salary.xlsx")
@@ -35,7 +37,19 @@ datos <- read_excel("ur_git/Proyecto_PyE1_2021_2s/dataset_engineering_graduate_s
 View(datos)
 
 
-
+library(readxl)
+dataset_prueba_2 <- read_excel("ur_git/Proyecto_PyE1_2021_2s/dataset_prueba_2.xlsx", 
+                               col_types = c("numeric", "text", "text", 
+                                             "numeric", "text", "numeric", "numeric", 
+                                             "text", "numeric", "numeric", "text", 
+                                             "text", "numeric", "numeric", "numeric", 
+                                             "text", "numeric", "numeric", "numeric", 
+                                             "numeric", "numeric", "numeric", 
+                                             "numeric", "numeric", "numeric", 
+                                             "numeric", "numeric", "numeric", 
+                                             "numeric", "numeric", "numeric", 
+                                             "numeric", "numeric", "numeric"))
+View(dataset_prueba_2)
 
 #--------------------------------------------------------------------------------------------
 # Definimos algunas variables globales Ãºtiles a lo largo de todo el cÃ³digo
@@ -327,7 +341,218 @@ barplot(Esp, main="Salario", xlab="Especializacion del graduado")
 GPAs <- c(gpa1, gpa2, gpa3, gpa4, gpa5, gpa6, gpa7, gpa8, gpa9)
 barplot(GPAs, main="Salario", xlab="Promedios de clases universitarias")
 
+#--------------------------------------------------------------------------------------------
+#Modelos lineales
 
+#Scatter plot GPA contra salario
+# f <- grep(datos, datos$CollegeGPA >= 0
+scatter.smooth(x=datos$CollegeGPA, y=datos$Salary, main="GPA~Salario")
+
+#Scatter plot de calificacion en clases contra salario
+Scatter.smooth(x=datos$Logic, y=datos$Salary, main="Calificacion Logica~Salario")
+
+#--------------------------------------------------------------------------------------------
+#pruebas
+a = unlist(col_13, use.names = FALSE)
+b = unlist(col_34, use.names = FALSE)
+
+x = c(a)
+y = c(b)
+
+plot(x,y,main="funciona") 
+alpha=0.05 
+n=length(x) 
+gl=n-2 
+
+mod = lm(y~x) 
+summary(mod) 
+abline(mod) 
+abline(mod,col=2,lwd=3)
+
+a = unlist(col_18, use.names = FALSE)
+b = unlist(col_34, use.names = FALSE)
+
+#--------------------------------------------------------------------------------------------
+# Comparativa entre columnas
+
+# Inglés vs salario
+a = unlist(col_18, use.names = FALSE)
+b = unlist(col_34, use.names = FALSE)
+x = c(a)
+y = c(b)
+
+plot(x,y,main="¿Los que saben inglés, ganana más?",xlab = "Puntaje inglés" , ylab = "Salario")
+
+# logica vs salario
+c = unlist(col_19, use.names = FALSE)
+d = unlist(col_34, use.names = FALSE)
+x = c(c)
+y = c(d)
+
+plot(x,y,main="Lógica vs salario",xlab = "Puntaje lógica" , ylab = "Salario")
+
+
+#--------------------------------------------------------------------------------------------
+# Pruebas de hipótesis
+# prueba 1:
+summary(datos) # consultamos el promedio de salarios
+salario = unlist(col_34, use.names = FALSE)
+media = mean(salario)
+sd = sd(salario)
+
+qnorm(0.025)
+
+r1 = media - 30605
+r2 = sd^2
+
+z = r1 / (sqrt(r2)/sqrt(2941))
+z
+
+qnorm(z, lower.tail = F)
+
+
+# para comprobar resultados, utilizamos la librería BSDA que nos permite hacer el 
+# proceso de manera más directa
+
+z.test(salario, alternative = "two.sided", mu=30605, sigma.x = sqrt(r2))
+
+
+#prueba 2:
+# En este caso, la media y desviación estandar fueron calculados directamente en excel
+# debido a la facilidad para filtrar lo datos
+summary(dataset_prueba_2) # consultamos el promedio de salarios
+salario = unlist(dataset_prueba_2[,34], use.names = FALSE)
+media = mean(salario)
+sd = sd(salario)
+
+qnorm(0.025)
+
+r1 = media - 50848
+r2 = sd^2
+
+z = r1 / (sqrt(r2)/sqrt(1156))
+z
+
+pnorm(z, lower.tail = F)
+
+z.test(dataset_prueba_2[,34], alternative = "two.sided", mu=50848, sigma.x = sqrt(r2))
+
+
+#-------------------------------------------------------------------------------------------
+#Modelos lineales
+
+#GPA ~ Salario
+a = unlist(col_13, use.names = FALSE)
+a1 = c(mean(col_34[col_13 >= 6 & col_13 <= 10]), mean(col_34[col_13 >= 40 & col_13 <= 59.9]), mean(col_34[col_13 >= 60 & col_13 <= 79.9]), mean(col_34[col_13 >= 80 & col_13 <= 100]))
+b = unlist(col_34, use.names = FALSE)
+b1 = c(mean(col_13[col_13 >= 6 & col_13 <= 10]), mean(col_13[col_13 >= 40 & col_13 <= 59.9]), mean(col_13[col_13 >= 60 & col_13 <= 79.9]), mean(col_13[col_13 >= 80 & col_13 <= 100]))
+
+x = c(b1)
+y = c(a1)
+
+plot(x,y,main="GPA ~Salario",xlim=c(0,100)) 
+alpha=0.05 
+n=length(x) 
+gl=n-2 
+
+mod = lm(y~x) 
+summary(mod) 
+abline(mod) 
+abline(mod,col=2,lwd=3)
+#print(a1)
+#print(b1)
+
+
+#Ingles ~ Salario
+a = unlist(col_19, use.names = FALSE)
+a1 = c(mean(col_34[col_19 >= 180 & col_19 <= 353]), mean(col_34[col_19 >= 354 & col_19 <= 527]), mean(col_34[col_19 >= 528 & col_19 <= 701]), mean(col_34[col_19 >= 702 & col_19 <= 876]))
+b = unlist(col_34, use.names = FALSE)
+b1 = c(mean(col_19[col_19 >= 180 & col_19 <= 353]), mean(col_19[col_19 >= 354 & col_19 <= 527]), mean(col_19[col_19 >= 528 & col_19 <= 701]), mean(col_19[col_19 >= 702 & col_19 <= 876]))
+
+
+x = c(b1)
+y = c(a1)
+
+plot(x,y,main="Ingles ~ Salario") 
+alpha=0.05 
+n=length(x) 
+gl=n-2 
+
+mod = lm(y~x) 
+summary(mod) 
+abline(mod) 
+abline(mod,col=2,lwd=3)
+#print(a1)
+#print(b1)
+
+
+#programacion ~ Salario
+a = unlist(col_19, use.names = FALSE)
+a1 = c(mean(col_34[col_23 >= 160 & col_23 <= 300]), mean(col_34[col_23 >= 301 & col_23 <= 441]), mean(col_34[col_23 >= 442 & col_23 <= 582]), mean(col_34[col_23 >= 583 & col_23 <= 723]))
+b = unlist(col_34, use.names = FALSE)
+b1 = c(mean(col_23[col_23 >= 180 & col_23 <= 353]), mean(col_23[col_23 >= 354 & col_23 <= 527]), mean(col_23[col_23 >= 528 & col_23 <= 701]), mean(col_23[col_23 >= 702 & col_23 <= 876]))
+
+
+x = c(b1)
+y = c(a1)
+
+plot(x,y,main="Programacion ~ Salario") 
+alpha=0.05 
+n=length(x) 
+gl=n-2 
+
+mod = lm(y~x) 
+summary(mod) 
+abline(mod) 
+abline(mod,col=2,lwd=3)
+#print(b1)
+#print(a1)
+
+
+#mecanica ~ Salario
+a = unlist(col_19, use.names = FALSE)
+a1 = c(mean(col_34[col_26 >= 180 & col_26 <= 290]), mean(col_34[col_26 >= 291 & col_26 <= 401]), mean(col_34[col_26 >= 402 & col_26 <= 512]), mean(col_34[col_26 >= 513 & col_26 <= 623]))
+b = unlist(col_34, use.names = FALSE)
+b1 = c(mean(col_26[col_26 >= 180 & col_26 <= 353]), mean(col_26[col_26 >= 354 & col_26 <= 527]), mean(col_26[col_26 >= 528 & col_26 <= 701]), mean(col_26[col_26 >= 702 & col_26 <= 876]))
+
+
+x = c(b1)
+y = c(a1)
+
+plot(x,y,main="Mecanica ~ Salario") 
+alpha=0.05 
+n=length(x) 
+gl=n-2 
+
+mod = lm(y~x) 
+summary(mod) 
+abline(mod) 
+abline(mod,col=2,lwd=3)
+#print(a1)
+#print(b1)
+
+
+#Extraversion ~ Salario
+a = unlist(col_19, use.names = FALSE)
+a1 = c(mean(col_34[col_32 >= -4.6 & col_32 <= -2.8]), mean(col_34[col_32 >= -2.9 & col_32 <= -1.1]), mean(col_34[col_32 >= -1.2 & col_32 <= 0.4]), mean(col_34[col_32 >= 0.5 & col_32 <= 2.2]))
+b = unlist(col_34, use.names = FALSE)
+b1 = c(mean(col_32[col_32 >= -4.6 & col_32 <= -2.8]), mean(col_32[col_32 >= -2.9 & col_32 <= -1.1]), mean(col_32[col_32 >= -1.2 & col_32 <= 0.4]), mean(col_32[col_32 >= 0.5 & col_32 <= 2.2]))
+
+
+x = c(b1)
+y = c(a1)
+
+plot(x,y,main="Extraversion ~ Salario",xlim=c(-5,3)) 
+alpha=0.05 
+n=length(x) 
+gl=n-2 
+
+mod = lm(y~x) 
+summary(mod) 
+abline(mod) 
+abline(mod,col=2,lwd=3)
+#print(a1)
+#print(b1)
 
 #--------------------------------------------------------------------------------------------
 # Fin del documento
